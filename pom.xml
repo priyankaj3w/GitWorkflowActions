@@ -16,6 +16,12 @@
 	<properties>
 		<java.version>11</java.version>
 	</properties>
+	<distributionManagement>
+	    <repository>
+		<id>github</id>
+		<url>https://github.com/priyankaj3w/GitWorkflowActions</url>
+	    </repository>
+	</distributionManagement>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
