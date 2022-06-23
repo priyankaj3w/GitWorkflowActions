@@ -1,7 +1,7 @@
 name: Git Push Workflow Mechanism
 on:
   push:
-    branches: [master]
+    branches: [main]
 jobs:
   build:
     permissions: 
