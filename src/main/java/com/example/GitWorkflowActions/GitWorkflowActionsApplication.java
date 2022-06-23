@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class GitWorkflowActionsApplication {
 
 	public static void main(String[] args) {
-		//Adding commenting
+		//Adding comments
 		SpringApplication.run(GitWorkflowActionsApplication.class, args);
 	}
 
