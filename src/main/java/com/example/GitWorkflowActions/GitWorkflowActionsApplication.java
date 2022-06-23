@@ -8,7 +8,7 @@ public class GitWorkflowActionsApplication {
 
 	public static void main(String[] args) {
 		//Adding comments new
-		SpringApplication.run(GitWorkflowActionsApplication.class, args);
+		pringApplication.run(GitWorkflowActionsApplication.class, args);
 	}
 
 }
