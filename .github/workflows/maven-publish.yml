@@ -48,10 +48,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.DEPLOY_GITHUB_TOKEN }}
       run: mvn verify
-    - name: Publish package
-      run: mvn --batch-mode deploy
-      env:
-        GITHUB_TOKEN: ${{ secrets.DEPLOY_GITHUB_TOKEN }}
+
     - name: Release Creation
       id: create_release
       uses: actions/create-release@v1
