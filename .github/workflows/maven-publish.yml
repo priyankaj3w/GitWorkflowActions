@@ -91,7 +91,7 @@ jobs:
         restore-keys: ${{ runner.os }}-m2-
         
     - name: Publish to GitHub Packages Apache Maven
-      run: mvn --batch-mode -DskipTests -DuseGitHubPackages -Pgithub-releases -DsignArtifacts deploy 
+      run: mvn --batch-mode -Dmaven.install.skip=true -DuseGitHubPackages -Pgithub-releases -DsignArtifacts deploy 
       env:
         GITHUB_TOKEN: ${{ secrets.DEPLOY_GITHUB_TOKEN }}
 
