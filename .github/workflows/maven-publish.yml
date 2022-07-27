@@ -43,21 +43,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.DEPLOY_GITHUB_TOKEN }}
       run: mvn versions:set -DnewVersion=${{ steps.tag_version.outputs.new_tag }}
-      
-    - name: Commit files
-      run: | 
-        git config remote.origin.url https://github.com/priyankaj3w/GitWorkflowActions.git
-        git config --global user.name "$(git --no-pager log --format=format:'%an' -n 1)"
-        git config --global user.email "$(git --no-pager log --format=format:'%ae' -n 1)"
-        git add -A
-        git commit -am "update"
-      
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: ${{ github.ref }}
-      
+          
     - name: Build with Maven
       run: mvn -B package --file pom.xml
       
