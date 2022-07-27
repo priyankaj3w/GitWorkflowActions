@@ -30,14 +30,14 @@ jobs:
         cache: maven
         server-id: github
         settings-path: ${{ github.workspace }}
-   
-    - name: Maven Build
-      run: mvn -B package --file pom.xml    
-     
+
     - name: Maven Set Package version
       env:
         GITHUB_TOKEN: ${{ secrets.DEPLOY_GITHUB_TOKEN }}
       run: mvn versions:set -DnewVersion=${{ steps.tag_version.outputs.new_tag }}
+
+    - name: Maven Build
+      run: mvn -B package --file pom.xml    
     
     - name: Publish to GitHub Packages Apache Maven
       run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
