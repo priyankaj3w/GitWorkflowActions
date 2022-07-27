@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository-->
 	</parent>
 	<groupId>com</groupId>
-	<artifactId>GWA</artifactId>
+	<artifactId>gwa</artifactId>
 	<version>v0.23.0</version>
-	<name>GitWorkflowActions</name>
+	<name>actions</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
