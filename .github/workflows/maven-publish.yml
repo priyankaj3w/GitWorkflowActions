@@ -1,4 +1,4 @@
-name: Git Push Workflow Mechanisms
+name: Git Push Workflow Mechanism
 on:
   push:
     branches: [main]
