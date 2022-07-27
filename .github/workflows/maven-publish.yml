@@ -53,18 +53,24 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.DEPLOY_GITHUB_TOKEN }}
       run: mvn versions:set -DnewVersion=${{ steps.tag_version.outputs.new_tag }}
-
-    - name: Build with Maven
-      run: mvn clean package -DattachMuleSources -Pgithub deploy
+      
+    - name: Maven Package
+      run: mvn -B clean package -DskipTests
+      
+    - name: Maven Verify
+      run: mvn -B clean verify -DskipTests
+      
+    - name: Maven Publish
+      run: mvn -B -e -X clean deploy -DskipTests
+      env:
+        GITHUB_TOKEN: ${{ secrets.DEPLOY_GITHUB_TOKEN }}
 
     - name: Publish artifacts
       uses: actions/upload-artifact@v2
       with:
         name: JARs
         path: target/*.jar 
-    
-
-    
+        
     - name: Tag Creation
       uses: anothrNick/github-tag-action@1.36.0
       env:
