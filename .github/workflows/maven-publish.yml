@@ -30,6 +30,13 @@ jobs:
         cache: maven
         server-id: github
         settings-path: ${{ github.workspace }}
+        
+    - name: Cache Maven packages
+      uses: actions/cache@v2
+      with:
+        path: ~/.m2/repository
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ runner.os }}-m2-
 
     - name: Maven Set Package version
       env:
